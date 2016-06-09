@@ -67,7 +67,7 @@ describe('TodoAPI', () => {
 				isCompleted: true
 			}, {
 				id: 3,
-				content: 'test data 3',
+				content: 'test data 2',
 				isCompleted: true
 			}, {
 				id: 4,
@@ -84,6 +84,25 @@ describe('TodoAPI', () => {
 		it('should return items with isCompleted as false if show completed is false', () => {
 			var filteredTodos = TodoAPI.filterTodos(todos, '', false);
 			expect(filteredTodos.length).toBe(2);
+		});
+
+		if('should sort by complete status', () => {
+			var filteredTodos = TodoAPI.filteredTodos(todos, '', true);
+
+			expect(filteredTodos[0].isCompleted).toBe(false);
+			expect(filteredTodos[1].isCompleted).toBe(false);
+			expect(filteredTodos[2].isCompleted).toBe(true);
+			expect(filteredTodos[3].isCompleted).toBe(true);
+		});
+
+		it('should filter todos by search text', () => {
+			var filteredTodos = TodoAPI.filterTodos(todos, 'test data 2', true);
+			expect(filteredTodos.length).toBe(2);
+		});
+
+		it('should return all items if no search text', () => {
+			var filteredTodos = TodoAPI.filterTodos(todos, '', true);
+			expect(filteredTodos.length).toBe(todos.length);
 		});
 	});
 });
