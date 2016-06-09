@@ -16,7 +16,7 @@ var TodoList = React.createClass({
 		return (
 			<div>
 				<ul>
-					{renderTodos()}
+					{ renderTodos() }
 				</ul>
 			</div>
 		);
