@@ -4,8 +4,6 @@ var TodoSearch = React.createClass({
 
 	handleTodoSearchInput: function() {
 		var showCompletedTodos = this.refs.showCompletedTodos.checked;
-		console.log(showCompletedTodos);
-
 		var serachText = this.refs.searchTodo.value;
 
 		this.props.onTodoSearch(serachText, showCompletedTodos);
